@@ -1,1 +1,0 @@
-Intialise technical manual directory

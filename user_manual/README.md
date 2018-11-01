@@ -1,1 +1,0 @@
-Initialise user manual directory 
