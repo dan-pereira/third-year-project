@@ -221,15 +221,15 @@ The planner was created on www.tomsplanner.com
 
 
 # Section 7 - Appendices
-**7.1 Resources:**
-https://www.tutorialspoint.com/swift/ 
-https://developer.apple.com/documentation/ 
-https://developer.apple.com/documentation/corenfc 
-https://www.python.org/ 
-https://httpd.apache.org/ 
-https://www.mysql.com/ 
-https://www.nfcideas.com/ 
-https://www.upwork.com/hiring/mobile/hiring-an-ios-app-developer/ 
-https://stackoverflow.com/questions/8397756/advices-on-server-implementation-for-server-client-structure-ios-app-development 
-https://developer.apple.com/support/xcode/ 
-https://www.tomsplanner.com 
+**7.1 Resources:**  
+https://www.tutorialspoint.com/swift/  
+https://developer.apple.com/documentation/  
+https://developer.apple.com/documentation/corenfc   
+https://www.python.org/  
+https://httpd.apache.org/  
+https://www.mysql.com/  
+https://www.nfcideas.com/  
+https://www.upwork.com/hiring/mobile/hiring-an-ios-app-developer/  
+https://stackoverflow.com/questions/8397756/advices-on-server-implementation-for-server-client-structure-ios-app-development   
+https://developer.apple.com/support/xcode/  
+https://www.tomsplanner.com  
