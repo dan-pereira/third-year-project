@@ -1,0 +1,14 @@
+GLA.L101
+https://www101.dcu.ie/timetables/feed.php?room=GLA.L101&week1=19&hour=1-20&day=1-5&template=location
+GLA.L114
+https://www101.dcu.ie/timetables/feed.php?room=GLA.L114&week1=19&hour=1-20&day=1-5&template=location
+GLA.L125
+https://www101.dcu.ie/timetables/feed.php?room=GLA.L125&week1=19&hour=1-20&day=1-5&template=location
+GLA.L128
+https://www101.dcu.ie/timetables/feed.php?room=GLA.L128&week1=19&hour=1-20&day=1-5&template=location
+GLA.LG25
+https://www101.dcu.ie/timetables/feed.php?room=GLA.LG25&week1=19&hour=1-20&day=1-5&template=location
+GLA.LG26
+https://www101.dcu.ie/timetables/feed.php?room=GLA.LG26&week1=19&hour=1-20&day=1-5&template=location
+GLA.LG27
+https://www101.dcu.ie/timetables/feed.php?room=GLA.LG27&week1=19&hour=1-20&day=1-5&template=location
