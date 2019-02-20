@@ -26,3 +26,4 @@ def timetable_any():
     room_id = input()
     x = bsoup.get_url(room_id)
     return (bsoup.html_to_json(x))
+
