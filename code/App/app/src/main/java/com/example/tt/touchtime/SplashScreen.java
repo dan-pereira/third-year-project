@@ -14,12 +14,14 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     public void studentView(View view) {
-        Intent intent = new Intent(this, StudentDetails.class);
-        startActivity(intent);
+        startActivity(new Intent(this, StudentDetails.class));
+//        Intent intent = new Intent(this, StudentDetails.class);
+//        startActivity(intent);
     }
 
     public void lecturerView(View View) {
         Intent intent = new Intent(this, LecturerDetails.class);
         startActivity(intent);
     }
+
 }

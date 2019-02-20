@@ -6,4 +6,8 @@
     <string name="room_id">Enter Room ID</string>
     <string name="time_message">Choose a Time</string>
     <string name="button_go">GO</string>
+    <string name="title_activity_scaning_screen">ScaningScreen</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="button_nfc">Press for NFC scan</string>
 </resources>
