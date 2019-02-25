@@ -10,7 +10,7 @@
         android:layout_width="190dp"
         android:layout_height="107dp"
         android:layout_marginTop="24dp"
-        android:text="@string/welcom_message"
+        android:text="@string/welcome_message"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.561"
