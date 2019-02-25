@@ -13,4 +13,5 @@
     <string name="nfc_error_empty">Scan Error</string>
     <string name="nfc_scan_req">Please Scan NFC Tag</string>
     <string name="nfc_scan_req2">Hold To Scan</string>
+    <string name="nfc_no_capabilities">No NFC Capabilities</string>
 </resources>

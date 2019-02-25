@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class ScanScreen extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class ScanScreen extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() throws NullPointerException {
 //        sets up what to look for when activity resumes to screen
         super.onResume();
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
@@ -34,7 +35,13 @@ public class ScanScreen extends AppCompatActivity {
         intentfilter.addAction(NfcAdapter.ACTION_TAG_DISCOVERED);
 //        find out if and what the NFC adapter on device is
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{intentfilter}, null);
+        try {
+            nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{intentfilter}, null);
+        }
+        catch (NullPointerException e){
+            TextView textBox = findViewById(R.id.textView3);
+            textBox.setText(R.string.nfc_no_capabilities);
+        }
     }
 
 
