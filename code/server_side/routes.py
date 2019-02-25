@@ -70,5 +70,5 @@ def timetable28():
     return jsonify(bsoup.html_to_json(x))
 
 if __name__ == '__main__':
-    app.run(host='136.206.255.215')
+    app.run(host='136.206.243.212')
 
