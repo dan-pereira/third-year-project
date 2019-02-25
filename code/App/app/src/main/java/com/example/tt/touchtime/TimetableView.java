@@ -3,6 +3,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -53,6 +54,7 @@ public class TimetableView extends AppCompatActivity {
 
     public void onButton(View view) {
 //        String message1 = "hello world test";
+        Log.i("p----------","request being made");
         getJSONObjectFromURL("http://136.206.255.215:5000/timetables/locations/LG27"); // call method with return in method
     }
 }

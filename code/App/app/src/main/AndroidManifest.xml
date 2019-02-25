@@ -3,6 +3,7 @@
     package="com.example.tt.touchtime">
     <!--Allows NFC capabilities on phone-->
 <uses-permission android:name="android.permission.NFC" />
+<uses-permission android:name="android.permission.INTERNET"/>
     <!--this line may be removed, test after success-->
 <uses-feature android:name="android.hardware.nfc" />
 
