@@ -52,10 +52,14 @@ public class TimetableView extends AppCompatActivity {
         queue.add(stringRequest);                                                   // add to thread
     }
 
-    public void onButton(View view) {
+    public void onButton(View view) throws NullPointerException {
 //        String message1 = "hello world test";
         Log.i("p----------","request being made");
-        getJSONObjectFromURL("http://136.206.255.215:5000/timetables/locations/LG27"); // call method with return in method
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String id = extras.getString("ROOMID");
+        String time = extras.getString("TIME");
+        getJSONObjectFromURL("http://136.206.255.215:5000/timetables/locations/" + (id)); // call method with return in method
     }
 }
 
