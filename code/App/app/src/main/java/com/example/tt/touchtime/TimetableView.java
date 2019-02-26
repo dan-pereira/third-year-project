@@ -16,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 public class TimetableView extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws NullPointerException{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable_view);
         //Default layout for screen
@@ -24,6 +24,7 @@ public class TimetableView extends AppCompatActivity {
 
         Bundle extras = intent.getExtras();
         // Init page
+        assert extras != null;
         String id = extras.getString("ROOMID");
         String time = extras.getString("TIME");
         // init info passed from last page
@@ -31,6 +32,8 @@ public class TimetableView extends AppCompatActivity {
         // Show last page info passed
         TextView textView = findViewById(R.id.textView);
         textView.setText(message);
+
+        findViewById(R.id.button7).performClick();
     }
 
     private void getJSONObjectFromURL(String urlString) {
@@ -59,7 +62,8 @@ public class TimetableView extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         String id = extras.getString("ROOMID");
         String time = extras.getString("TIME");
-        getJSONObjectFromURL("http://136.206.255.215:5000/timetables/locations/" + (id)); // call method with return in method
+        String user_id = extras.getString("USER_TYPE");
+        getJSONObjectFromURL("http://192.168.43.132:5000/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
     }
 }
 

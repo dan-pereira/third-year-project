@@ -6,6 +6,7 @@
 <uses-permission android:name="android.permission.NFC" />
 <uses-permission android:name="android.permission.INTERNET"/>
 
+<!-- TODO Target SDK Gradle Version -->
 
     <application
         android:allowBackup="true"

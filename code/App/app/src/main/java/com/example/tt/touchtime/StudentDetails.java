@@ -32,7 +32,7 @@ public class StudentDetails extends AppCompatActivity {
 
         extras.putString("ROOMID", message1);
         extras.putString("TIME", message2);
-        extras.putString("USER_TYPE", "student");
+        extras.putString("USER_TYPE", "");
 
 
         Intent intent = new Intent(this, TimetableView.class);

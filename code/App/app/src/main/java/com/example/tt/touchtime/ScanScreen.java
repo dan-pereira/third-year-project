@@ -84,6 +84,7 @@ public class ScanScreen extends AppCompatActivity {
 //              Here text is being passed to next activity
                 Bundle passingString = new Bundle();
                 passingString.putString("ROOMID", text);
+                passingString.putString("USER_TYPE", "student");
                 Intent intent = new Intent(this, TimetableView.class);
                 intent.putExtras(passingString);
                 startActivity(intent);

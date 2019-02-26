@@ -16,15 +16,34 @@ public class LecturerDetails extends AppCompatActivity {
 
     public void scanView(View view) {
         startActivity(new Intent(this, ScanScreen.class));
-
     }
 
     public void timetableView(View view) {
-
         Bundle extras = new Bundle();
 
-        EditText editText1 = findViewById(R.id.editText);
-        EditText editText2 = findViewById(R.id.editText2);
+        EditText editText1 = findViewById(R.id.editText3);
+        EditText editText2 = findViewById(R.id.editText4);
+
+        String message1 = editText1.getText().toString();
+        String message2 = editText2.getText().toString();
+
+        extras.putString("ROOMID", message1);
+        extras.putString("TIME", message2);
+        extras.putString("USER_TYPE", "");
+
+
+        Intent intent = new Intent(this, TimetableView.class);
+
+        intent.putExtras(extras);
+        startActivity(intent);
+    }
+
+
+    public void attendanceView(View view) {
+        Bundle extras = new Bundle();
+
+        EditText editText1 = findViewById(R.id.editText3);
+        EditText editText2 = findViewById(R.id.editText4);
 
         String message1 = editText1.getText().toString();
         String message2 = editText2.getText().toString();
