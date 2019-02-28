@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import bsoup
+import socket
 # from app import app
 app = Flask(__name__)
 
@@ -38,6 +39,11 @@ def tester(tester1):
 	x = bsoup.get_url(room_id)
 	return jsonify(bsoup.html_to_json(x))
 
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    return str(s.getsockname()[0])
+
 if __name__ == '__main__':
-	app.run(host='136.206.255.215', port = '5000')
+	app.run(host=get_ip_address(), port = '5000')
 
