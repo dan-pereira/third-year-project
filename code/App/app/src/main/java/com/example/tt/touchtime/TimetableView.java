@@ -60,7 +60,7 @@ public class TimetableView extends AppCompatActivity {
         Log.i("p----------","request being made");
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String id = extras.getString("ROOMID");
+        String id = extras.getString("ROOMID").replaceAll("\\s+", "");
         String time = extras.getString("TIME");
         String user_id = extras.getString("USER_TYPE");
         getJSONObjectFromURL("http://192.168.43.132:5000/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
