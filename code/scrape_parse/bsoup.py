@@ -1,37 +1,25 @@
-import requests
+import requests 
 from bs4 import BeautifulSoup
-
-
 def get_url(location):
-	file = open("location_list.txt")
-	if str(location + "\n") not in file:
-		return "Not in file"
-	file.close()
 
-	payload = {"room": location, "week1": "19", "hour": "1-20", "day": "1-5", "template": "location"}
+	# file = open("location_list.txt")
+	# if str(location+"\n") not in file:
+	# 	return ("Not in file")
+	# file.close()
+
+	# GET CURRENT WEEK METHOD
+
+	current_week = "24"
+
+	payload = {"room": location, "week1": current_week, "hour": "1-20", "day": "1-5", "template": "location"}
 	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=False)
 
-	if check_availability(http_raw):
-		return str(location) + ".html"
-
-	name = str(location) + ".html"
+	name = str(location)+".html"
 	file = open(name, 'wb')
 	file.write(http_raw.content)
 	file.close()
 
 	return name
-
-
-def check_availability(raw_html):
-	try:
-		for line in raw_html:
-			if line.name == 'td':
-				print("Null")
-				return
-	except:
-		print("True")
-		return True
-
 
 def html_to_json(file_name):
 	raw_html = open(file_name).read()
@@ -72,14 +60,13 @@ def html_to_json(file_name):
 						# appends hours
 						for _ in range(length):
 							hour.append(table_data_num[count])
-							count += 1
 
 						dic = {"module": cell_info[0], "name": cell_info[1], "lec": cell_info[2], "num": cell_info[3], "hours": hour}
 						week[day_name].append(dic)
 					except:
 						# for day of week
 						try:
-							null = data["rowspan"]  # will fail if no rowspan
+							null = data["rowspan"] #will fail if no rowspan
 							day_name = str(data.string)
 							if day_name not in week:
 								week[day_name] = []
@@ -88,19 +75,29 @@ def html_to_json(file_name):
 							count += 1
 							pass
 
-	for day in week:
-		print(day, "\n", week[day])
-	return "success"
+	# for day in week:
+		# print(day, "\n", week[day])
+	print("success")
+	if week == {}:	
+		return(str('Class not found please check spelling and try again.'))
+	else:	
+		return(week)
 
+# Testing 
 
 if __name__ == '__main__':
-	room_id = "GLA.LG27"
 
+
+	room_id = 'GLA.LG27'
+
+	# file_name = get_url(room_id)
 	file_name = get_url(room_id)
-
 	try:
 		print(html_to_json(file_name))
 	except:
 		print("Invalid Timetable")
+
+	print("ll")
+
 
 	pass
