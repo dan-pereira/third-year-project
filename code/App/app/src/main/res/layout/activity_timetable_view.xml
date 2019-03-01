@@ -9,42 +9,20 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="371dp"
-        android:layout_height="203dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="65dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!--<Button-->
-        <!--android:id="@+id/button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:layout_marginRight="16dp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:onClick="onButton"-->
-        <!--android:text="Button"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/button2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:onClick="createTimetable"-->
-        <!--android:text="2"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent" />-->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/total" />
 
     <LinearLayout
         android:id="@+id/total"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="90dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -493,12 +471,6 @@
                             android:padding="1dp"
                             android:textSize="12sp" />
                     </TableRow>
-
-
-                    <!--<View-->
-                    <!--android:layout_height="0dip"-->
-                    <!--android:background="#FF909090"-->
-                    <!--android:shape="rectangle" />-->
 
                 </TableLayout>
             </HorizontalScrollView>

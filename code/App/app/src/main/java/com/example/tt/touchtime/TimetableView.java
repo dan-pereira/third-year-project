@@ -1,10 +1,15 @@
 package com.example.tt.touchtime;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -17,9 +22,11 @@ import org.json.JSONObject;
 
 public class TimetableView extends AppCompatActivity {
 
+    String userType; //lecturer
+    String room;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) throws NullPointerException{
+    protected void onCreate(Bundle savedInstanceState) throws NullPointerException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable_view);
         //Default layout for screen
@@ -31,16 +38,11 @@ public class TimetableView extends AppCompatActivity {
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
         String time = extras.getString("TIME");
         String user_id = extras.getString("USER_TYPE");
+        userType = user_id;
+        room = id;
 
         getJSONObjectFromURL("http://192.168.43.224:5000/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
 
-
-
-        // init info passed from last page
-//        String message = id;
-        // Show last page info passed
-//        TextView textView = findViewById(R.id.textView);
-//        textView.setText(message);
     }
 
     private void getJSONObjectFromURL(String urlString) throws java.lang.IllegalStateException {
@@ -51,9 +53,13 @@ public class TimetableView extends AppCompatActivity {
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
                 System.out.println("Response is: " + response);                 // stack trace checker
-                TextView textView = findViewById(R.id.textView);               // init new text view
-                textView.setText(response);                                    // fill text field with info
-                createTimetable(response);
+                if (userType.equals("lecturer")) {
+                    displayAttendance(response);
+                } else {
+                    TextView textView = findViewById(R.id.textView);               // init new text view
+                    textView.setText(response);                                    // fill text field with info
+                    createTimetable(response);
+                }
             }
         }, new Response.ErrorListener() {                                   // error handling auto generated
             public void onErrorResponse(VolleyError error) {
@@ -65,78 +71,69 @@ public class TimetableView extends AppCompatActivity {
         queue.add(stringRequest);                                                   // add to thread
     }
 
-    public void createTimetable(String mess){
+    private void displayAttendance(String number) {
+        LinearLayout table = findViewById(R.id.total);
+        table.setVisibility(View.INVISIBLE);
+        TextView textBox = findViewById(R.id.textView);
+        textBox.setTextSize(30);
+        textBox.setText(number);
+    }
+
+    public void createTimetable(String mess) {
         TextView textView = findViewById(R.id.textView);
 
         try {
             JSONObject data = new JSONObject(mess);
 
-            String [] days = {"Mon","Tue", "Wed", "Thu", "Fri"};
-            for(String d:days){
+            String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri"};
+            for (String d : days) {
 
                 String day = data.getString(d);// makes a day a string
 
                 JSONArray jsonArray = new JSONArray(day);
                 int count = jsonArray.length();
-                for(int i= 0 ; i<count ; i += 1){
+                for (int i = 0; i < count; i += 1) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String m = jsonObject.getString("module");
-                    String n= jsonObject.getString("name");
+                    String n = jsonObject.getString("name");
                     String l = jsonObject.getString("lec");
                     JSONArray ja = jsonObject.getJSONArray("hours");
                     String t = ja.getString(0);
                     int len = ja.length();
 
-                    textView.setText("");
-
-                    addToTable(d,m,n,l,t,len);
+                    addToTable(d, m, n, l, t, len);
                 }
             }
+            textView.setGravity(Gravity.BOTTOM);
+            textView.setText(room);
 
         } catch (Throwable tx) {
-            Log.i("----__-_","here",tx);
-            Log.e("My App", "Could not parse malformed JSON: \"",tx);
+            Log.i("----__-_", "here", tx);
+            Log.e("My App", "Could not parse malformed JSON: \"", tx);
+            textView.setText((CharSequence) tx); //TODO check if statement valid...mayremove
         }
     }
 
-    private void addToTable(String day, String module, String name, String lec, String begin, int duration){
+    private void addToTable(String day, String module, String name, String lec, String begin, int duration) {
 
         String baseIdentifier = "";
         baseIdentifier += Character.toLowerCase(day.charAt(0));
         baseIdentifier += day.charAt(1);
 
-        for(int i = 0 ; i< duration; i+=2){
+        for (int i = 0; i < duration; i += 2) {
 
-            String [] hourMin = begin.split(":");
+            String[] hourMin = begin.split(":");
             String hour = hourMin[0];
             int time = Integer.parseInt(hour);
-            time = time + i/2;
+            time = time + i / 2;
 
             String identifier = baseIdentifier + time;
 
-            int id = getResources().getIdentifier(identifier,"id",getPackageName());
+            int id = getResources().getIdentifier(identifier, "id", getPackageName());
             TextView slot = findViewById(id);
-            slot.setText(module+"\n"+name+"\n"+lec);
+            slot.setText(module + "\n" + name + "\n" + lec);
 
         }
     }
-
-
-
-
-
-
-
-
-//    public void onButton(View view) throws NullPointerException {
-////        String message1 = "hello world test";
-//        Log.i("p----------","request being made");
-//        Intent intent = getIntent();
-//        Bundle extras = intent.getExtras();
-//        String id = extras.getString("ROOMID").replaceAll("\\s+", "");
-//        String time = extras.getString("TIME");
-//        String user_id = extras.getString("USER_TYPE");
-//        getJSONObjectFromURL("http://192.168.43.132:5000/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
-//    }
 }
 
