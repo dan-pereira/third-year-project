@@ -8,31 +8,501 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:layout_width="371dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<Button-->
+        <!--android:id="@+id/button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:onClick="onButton"-->
+        <!--android:text="Button"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:onClick="createTimetable"-->
+        <!--android:text="2"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent" />-->
+
+    <LinearLayout
+        android:id="@+id/total"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="65dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="176dp" />
+        <ScrollView
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dip"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="horizontal|vertical">
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onButton"
-        android:text="Button"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="600dp" />
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:scrollbars="horizontal|vertical">
+
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/table"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="1,2,3,4,5">
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:text="Monday"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:text="Tuesday"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:text="Wednesday"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:text="Thursday"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:text="Friday"
+                            android:textSize="14sp" />
+                    </TableRow>
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="8:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo8"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu8"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we8"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th8"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr8"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:text=""
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="9:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo9"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu9"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we9"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th9"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr9"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="10:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo10"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu10"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we10"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th10"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr10"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="11:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo11"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu11"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we11"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th11"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr11"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="12:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo12"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu12"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we12"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th12"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr12"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="13:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo13"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu13"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we13"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th13"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr13"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="14:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo14"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu14"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we14"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th14"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr14"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="15:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo15"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu15"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we15"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th15"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr15"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="16:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo16"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu16"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we16"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th16"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr16"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_column="0"
+                            android:text="17:00"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/mo17"
+                            android:layout_column="1"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tu17"
+                            android:layout_column="2"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/we17"
+                            android:layout_column="3"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/th17"
+                            android:layout_column="4"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/fr17"
+                            android:layout_column="5"
+                            android:padding="1dp"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+
+                    <!--<View-->
+                    <!--android:layout_height="0dip"-->
+                    <!--android:background="#FF909090"-->
+                    <!--android:shape="rectangle" />-->
+
+                </TableLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

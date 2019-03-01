@@ -88,9 +88,9 @@ def html_to_json(file_name):
 							count += 1
 							pass
 
-	for day in week:
-		print(day, "\n", week[day])
-	return "success"
+	# for day in week:
+	# 	print(day, "\n", week[day])
+	return week
 
 
 if __name__ == '__main__':
