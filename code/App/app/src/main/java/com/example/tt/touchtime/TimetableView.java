@@ -41,7 +41,7 @@ public class TimetableView extends AppCompatActivity {
         userType = user_id;
         room = id;
 
-        getJSONObjectFromURL("http://192.168.43.224:5000/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
+        getJSONObjectFromURL("http://209.97.184.103/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
 
     }
 
@@ -75,7 +75,7 @@ public class TimetableView extends AppCompatActivity {
         LinearLayout table = findViewById(R.id.total);
         table.setVisibility(View.INVISIBLE);
         TextView textBox = findViewById(R.id.textView);
-        textBox.setTextSize(20);
+        textBox.setTextSize(30);
         String message = number +"\n Students have checked in via NFC";
         textBox.setText(message);
     }
