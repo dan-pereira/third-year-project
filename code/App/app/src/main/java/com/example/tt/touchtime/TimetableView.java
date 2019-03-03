@@ -36,7 +36,7 @@ public class TimetableView extends AppCompatActivity {
 
         assert extras != null;
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
-        String time = extras.getString("TIME");
+//        String time = extras.getString("TIME");
         String user_id = extras.getString("USER_TYPE");
         userType = user_id;
         room = id;
@@ -75,8 +75,9 @@ public class TimetableView extends AppCompatActivity {
         LinearLayout table = findViewById(R.id.total);
         table.setVisibility(View.INVISIBLE);
         TextView textBox = findViewById(R.id.textView);
-        textBox.setTextSize(30);
-        textBox.setText(number);
+        textBox.setTextSize(20);
+        String message = number +"\n Students have checked in via NFC";
+        textBox.setText(message);
     }
 
     public void createTimetable(String mess) {
