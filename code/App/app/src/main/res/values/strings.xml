@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Touch Time</string>
-    <string name="welcome_message">Welcome To Touch Time</string>
+    <string name="welcome_message">Welcome To</string>
     <string name="button_student">STUDENT</string>
     <string name="button_lecturer">LECTURER</string>
     <string name="room_id">Enter Room ID</string>
@@ -12,6 +12,6 @@
     <string name="button_nfc">Press for NFC scan</string>
     <string name="nfc_error_empty">Scan Error</string>
     <string name="nfc_scan_req">Please Scan NFC Tag</string>
-    <string name="nfc_scan_req2">Hold To Scan</string>
+    <string name="nfc_scan_req2">Hold Near Tag To Scan</string>
     <string name="nfc_no_capabilities">No NFC Capabilities</string>
 </resources>

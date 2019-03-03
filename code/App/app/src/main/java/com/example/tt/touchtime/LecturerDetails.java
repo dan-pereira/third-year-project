@@ -22,13 +22,13 @@ public class LecturerDetails extends AppCompatActivity {
         Bundle extras = new Bundle();
 
         EditText editText1 = findViewById(R.id.editText3);
-        EditText editText2 = findViewById(R.id.editText4);
+//        EditText editText2 = findViewById(R.id.editText4);
 
         String message1 = editText1.getText().toString();
-        String message2 = editText2.getText().toString();
+//        String message2 = editText2.getText().toString();
 
         extras.putString("ROOMID", message1);
-        extras.putString("TIME", message2);
+//        extras.putString("TIME", message2);
         extras.putString("USER_TYPE", "");
 
 
@@ -43,13 +43,13 @@ public class LecturerDetails extends AppCompatActivity {
         Bundle extras = new Bundle();
 
         EditText editText1 = findViewById(R.id.editText3);
-        EditText editText2 = findViewById(R.id.editText4);
+//        EditText editText2 = findViewById(R.id.editText4);
 
         String message1 = editText1.getText().toString();
-        String message2 = editText2.getText().toString();
+//        String message2 = editText2.getText().toString();
 
         extras.putString("ROOMID", message1);
-        extras.putString("TIME", message2);
+//        extras.putString("TIME", message2);
         extras.putString("USER_TYPE", "lecturer");
 
 
