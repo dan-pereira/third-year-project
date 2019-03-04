@@ -15,7 +15,11 @@ public class LecturerDetails extends AppCompatActivity {
     }
 
     public void scanView(View view) {
-        startActivity(new Intent(this, ScanScreen.class));
+        Bundle extras = new Bundle();
+        extras.putString("USER_TYPE", "");
+        Intent intent = new Intent(this, ScanScreen.class);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 
     public void timetableView(View view) {
@@ -28,7 +32,6 @@ public class LecturerDetails extends AppCompatActivity {
 //        String message2 = editText2.getText().toString();
 
         extras.putString("ROOMID", message1);
-//        extras.putString("TIME", message2);
         extras.putString("USER_TYPE", "");
 
 

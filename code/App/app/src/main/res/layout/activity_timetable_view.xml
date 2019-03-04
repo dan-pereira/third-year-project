@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="371dp"
+        android:layout_width="332dp"
         android:layout_height="0dp"
-        android:gravity="center"
+        android:layout_marginBottom="8dp"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,13 +27,15 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <ScrollView
             android:id="@+id/layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dip"
             android:fillViewport="true"
             android:scrollbarStyle="outsideInset"
@@ -51,49 +53,66 @@
                     android:id="@+id/table"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000"
                     android:stretchColumns="1,2,3,4,5">
 
-                    <TableRow>
-
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/colorPrimary">
 
                         <TextView
                             android:layout_column="1"
-                            android:padding="1dp"
+                            android:padding="10dp"
                             android:text="Monday"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/ic_launcher_background"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_column="2"
-                            android:padding="1dp"
+                            android:padding="10dp"
                             android:text="Tuesday"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/ic_launcher_background"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_column="3"
-                            android:padding="1dp"
+                            android:padding="10dp"
                             android:text="Wednesday"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/ic_launcher_background"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_column="4"
-                            android:padding="1dp"
+                            android:padding="10dp"
                             android:text="Thursday"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/ic_launcher_background"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_column="5"
-                            android:padding="1dp"
+                            android:padding="10dp"
                             android:text="Friday"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/ic_launcher_background"
+                            android:textStyle="bold" />
                     </TableRow>
 
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="8:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo8"
@@ -131,12 +150,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="9:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo9"
@@ -169,12 +192,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="10:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo10"
@@ -207,12 +234,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="11:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo11"
@@ -245,12 +276,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="12:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo12"
@@ -283,12 +318,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="13:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo13"
@@ -321,12 +360,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="14:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo14"
@@ -359,12 +402,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="15:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo15"
@@ -397,12 +444,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="16:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo16"
@@ -435,12 +486,16 @@
                             android:textSize="12sp" />
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow
+                        android:layout_margin="1dp"
+                        android:background="@color/ic_launcher_background">
 
                         <TextView
                             android:layout_column="0"
+                            android:padding="2dp"
                             android:text="17:00"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/mo17"

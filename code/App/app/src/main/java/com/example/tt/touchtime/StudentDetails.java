@@ -18,8 +18,11 @@ public class StudentDetails extends AppCompatActivity {
 
 
     public void scanView(View view) {
-        startActivity(new Intent(this, ScanScreen.class));
-
+        Bundle extras = new Bundle();
+        extras.putString("USER_TYPE", "student");
+        Intent intent = new Intent(this, ScanScreen.class);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 
     public void timetableView(View view) {
