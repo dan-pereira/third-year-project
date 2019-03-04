@@ -1,4 +1,5 @@
 import requests 
+import datetime
 from bs4 import BeautifulSoup
 def get_url(location):
 
@@ -9,7 +10,16 @@ def get_url(location):
 
 	# GET CURRENT WEEK METHOD
 
-	current_week = "24"
+	current = datetime.datetime.now()
+	date = current.strftime("%V")
+	date = int(date)
+	# print(type(date))
+	# str(date)
+	date = date + 14
+	date = str(date)
+	print(date)
+
+	current_week = date
 
 	payload = {"room": location, "week1": current_week, "hour": "1-20", "day": "1-5", "template": "location"}
 	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=False)
