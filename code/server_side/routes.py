@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/var/www/FlaskApp/FlaskApp')
 import bsoup
+import authentication
 from flask import Flask, request, jsonify, render_template
 #import bsoup
 
@@ -57,6 +58,13 @@ def tester(tester1):
                 return ("0") 
         x = bsoup.get_url(room_id)
         return jsonify(bsoup.html_to_json(x))
+
+@app.route('/authentication/<usr>/<pas>')
+def authentication_check(usr, pas):
+    if authentication.check_user(usr,pas) == True:
+        return("1")
+    else:
+        return("0")
 
 
 if __name__ == "__main__":
