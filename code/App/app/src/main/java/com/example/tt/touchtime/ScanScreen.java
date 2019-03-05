@@ -33,11 +33,18 @@ public class ScanScreen extends AppCompatActivity {
         intentfilter.addAction(NfcAdapter.ACTION_TAG_DISCOVERED);
 //        find out if and what the NFC adapter on device is
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
+        TextView textBox = findViewById(R.id.textView3);
         try {
-            nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{intentfilter}, null);
+            NfcAdapter nfcAdpt = NfcAdapter.getDefaultAdapter(this);
+            if (!nfcAdpt.isEnabled()){
+                textBox.setText(R.string.enable_nfc);
+            }
+            else {
+                nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{intentfilter}, null);
+            }
         }
         catch (NullPointerException e){
-            TextView textBox = findViewById(R.id.textView3);
             textBox.setText(R.string.nfc_no_capabilities);
         }
     }
