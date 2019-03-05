@@ -3,11 +3,6 @@ import datetime
 from bs4 import BeautifulSoup
 
 def get_url(location):
-#	name = "/var/www/FlaskApp/FlaskApp/location_list.txt"
-#	file = open(name, 'r')
-#	if str(location+"\n") not in file:
-#		return ("Not in file")
-#	file.close()
 
 	# GET CURRENT WEEK METHOD
 
