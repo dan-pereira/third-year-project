@@ -61,9 +61,9 @@ def html_to_json(file_name):
 									if detail1.name == "tr":
 										for detail2 in detail1:
 											if detail2.name == "td":
-											if item_number < 4:
-											cell_info.append(str(detail2.string))
-											item_number += 1
+												if item_number < 4:
+													cell_info.append(str(detail2.string))
+												item_number += 1
 
 						hour = []
 						# appends hours
