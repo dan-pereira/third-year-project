@@ -14,4 +14,8 @@
     <string name="nfc_scan_req">Please Scan NFC Tag</string>
     <string name="nfc_scan_req2">Hold Near Tag To Scan</string>
     <string name="nfc_no_capabilities">No NFC Capabilities</string>
+    <string name="user_name">Enter Username</string>
+    <string name="password">Enter Password</string>
+    <string name="invalid_auth">Invalid Authentication</string>
+    <string name="invalid_response">Response Error</string>
 </resources>

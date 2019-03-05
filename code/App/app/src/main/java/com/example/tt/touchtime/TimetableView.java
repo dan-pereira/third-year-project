@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TimetableView extends AppCompatActivity {
@@ -36,7 +37,6 @@ public class TimetableView extends AppCompatActivity {
 
         assert extras != null;
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
-//        String time = extras.getString("TIME");
         String user_id = extras.getString("USER_TYPE");
         userType = user_id;
         room = id;
@@ -65,7 +65,7 @@ public class TimetableView extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 System.out.println("That didn't work!");
                 TextView textView = findViewById(R.id.textView);               // init new text view
-                textView.setText("Response Error");
+                textView.setText(R.string.invalid_response);
             }
         });
         queue.add(stringRequest);                                                   // add to thread

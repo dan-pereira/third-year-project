@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tt.touchtime">
-    <!--Allows NFC capabilities on phone-->
-<uses-permission android:name="android.permission.NFC" />
-<uses-permission android:name="android.permission.INTERNET"/>
-
-<!-- TODO Target SDK Gradle Version -->
+    <!-- Allows NFC capabilities on phone -->
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,24 +14,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Authentication"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".StudentDetails" />
         <activity android:name=".LecturerDetails" />
-        <activity android:name=".ScanScreen" >
+        <activity android:name=".ScanScreen">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".TimetableView"/>
+        <activity android:name=".TimetableView" />
     </application>
 
 </manifest>

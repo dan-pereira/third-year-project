@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 public class StudentDetails extends AppCompatActivity {
 
-//    TODO text box for time was removed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +29,10 @@ public class StudentDetails extends AppCompatActivity {
         Bundle extras = new Bundle();
 
         EditText editText1 = findViewById(R.id.editText);
-//        EditText editText2 = findViewById(R.id.editText2);
 
         String message1 = editText1.getText().toString();
-//        String message2 = editText2.getText().toString();
 
         extras.putString("ROOMID", message1);
-//        extras.putString("TIME", message2);
         extras.putString("USER_TYPE", "");
 
 

@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     public void lecturerView(View View) {
-        Intent intent = new Intent(this, LecturerDetails.class);
+        Intent intent = new Intent(this, Authentication.class);
         startActivity(intent);
     }
 
