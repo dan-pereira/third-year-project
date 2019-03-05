@@ -69,6 +69,7 @@ def html_to_json(file_name):
 						# appends hours
 						for _ in range(length):
 							hour.append(table_data_num[count])
+							count += 1
 
 						dic = {"module": cell_info[0], "name": cell_info[1], "lec": cell_info[2], "num": cell_info[3], "hours": hour}
 						week[day_name].append(dic)
