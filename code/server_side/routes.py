@@ -37,7 +37,7 @@ def timetable_empty(tester1):
                 x = bsoup.get_url(room_id)
                 return jsonify(bsoup.html_to_json(x))
         else:
-                return ("0") 
+                return ("00") 
 
 @app.route('/timetables/locations/<tester1>/lecturer') 
 def lec_tester(tester1):

@@ -7,7 +7,7 @@ def check_user (user, password):
 	file.close()
 
 
-	if user_dic[user] == password:
+	if user in user_dic and user_dic[user] == password:
 		return True
 
 	else:
