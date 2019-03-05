@@ -23,7 +23,7 @@ def check_location(vari):
 
 @app.route("/")
 def hello():
-    return "Welcome to TouchTime Server!"
+        return "Welcome to TouchTime Server!"
 
 @app.route('/timetables/')
 @app.route('/timetables/locations/')
@@ -41,8 +41,13 @@ def timetable_empty(tester1):
 
 @app.route('/timetables/locations/<tester1>/lecturer') 
 def lec_tester(tester1):
-        if tester1 not in counter_dict: 
-                counter_dict[tester1] = 0
+        room_id = 'GLA.' + tester1
+        if check_location(room_id) == True:
+                if tester1 not in counter_dict:
+                        counter_dict[tester1] = 0
+                return str(counter_dict[tester1])
+        else: 
+                return ('00')
 
 @app.route('/timetables/locations/<tester1>/student') 
 def tester(tester1):
