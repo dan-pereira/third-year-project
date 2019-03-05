@@ -34,15 +34,18 @@ public class TimetableView extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
-
-        assert extras != null;
+//TODO maybe if if breaks
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
         String user_id = extras.getString("USER_TYPE");
         userType = user_id;
         room = id;
 
-        getJSONObjectFromURL("http://209.97.184.103/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
-
+        if (room.equals("")){
+            displayTableError();
+        }
+        else {
+            getJSONObjectFromURL("http://209.97.184.103/timetables/locations/" + (id) + "/" + (user_id)); // call method with return in method
+        }
     }
 
     private void getJSONObjectFromURL(String urlString) throws java.lang.IllegalStateException {
