@@ -1,79 +1,90 @@
-import sys
-sys.path.append('/var/www/FlaskApp/FlaskApp')
-import bsoup
-from flask import Flask, request, jsonify, render_template
-#import bsoup
-import authentication
+import requests 
+import datetime
+from bs4 import BeautifulSoup
 
-app = Flask(__name__)
+def get_url(location):
+#	name = "/var/www/FlaskApp/FlaskApp/location_list.txt"
+#	file = open(name, 'r')
+#	if str(location+"\n") not in file:
+#		return ("Not in file")
+#	file.close()
 
-counter_dict = {}
+	# GET CURRENT WEEK METHOD
 
-#for key in counter_dict: 
-#       counter_dict[key] = 0 
+	current = datetime.datetime.now()
+	date = current.strftime("%V")
+	date = int(date)
+	date = date + 14
+	date = str(date)
+#	print(date)
+	current_week = date
+	#current_week = "24"
 
-def check_location(vari):
-        file_loc = "/var/www/FlaskApp/FlaskApp/location_list.txt"
-        file = open(file_loc, 'r')
-        if str(vari+"\n") not in file:
-                return (False)
-        else:
-                return True 
-        file.close()
+	payload = {"room": location, "week1": current_week, "hour": "1-20", "day": "1-5", "template": "location"}
+	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=False)
 
-@app.route("/")
-def hello():
-    return "Welcome to TouchTime Server!"
+	name = ('/var/www/FlaskApp/FlaskApp/') + str(location)+".html"
+	file = open(name, 'wb')
+	file.write(http_raw.content)
+	file.close()
 
-@app.route('/timetables/')
-@app.route('/timetables/locations/')
-def timetable(): 
-        return("see directories below for timetables")
+	return name
 
-@app.route('/timetables/locations/<tester1>/')
-def timetable_empty(tester1): 
-        room_id = 'GLA.' + tester1
-        if check_location(room_id) == True:
-                x = bsoup.get_url(room_id)
-                return jsonify(bsoup.html_to_json(x))
-        else:
-                return ("0") 
+def html_to_json(file_name):
+	raw_html = open(file_name).read()
+	table_raw = BeautifulSoup(raw_html, 'html.parser').contents
+	week = {}
+	table_data_num = ["8:00"]
+	# allows indexing on available times
+	for line in table_raw:
+		if line.name == 'td':
+			table_data_num.append(str(line.string))
 
-@app.route('/timetables/locations/<tester1>/lecturer') 
-def lec_tester(tester1):
-        if tester1 not in counter_dict: 
-                counter_dict[tester1] = 0
-        return str(counter_dict[tester1])
+	for table in table_raw:
+		if table.name == 'tr':
 
-@app.route('/timetables/locations/<tester1>/student') 
-def tester(tester1):
-        if tester1 not in counter_dict: 
-                counter_dict[tester1] = 1
-        else: 
-                counter_dict[tester1] += 1 
-        room_id = 'GLA.' + tester1
-        if check_location(room_id) == True:
-                x = bsoup.get_url(room_id)
-                return jsonify(bsoup.html_to_json(x))
-        else:
-                return ("0") 
-        x = bsoup.get_url(room_id)
-        return jsonify(bsoup.html_to_json(x))
+			count = 0  # is counting each column on table
+			day_name = "error"
+			day_data = table.contents
+			# day data is each row
+			for data in day_data:
+				if data.name == "td":
+					try:
+						length = int(data["colspan"])
+						event = data.contents
+						item_number = 0
+						cell_info = []
+						# pulls all details out of cells
+						for detail in event:
+							if detail.name == "table":
+								for detail1 in detail.contents:
+									if detail1.name == "tr":
+										for detail2 in detail1:
+											if detail2.name == "td":
+											if item_number < 4:
+											cell_info.append(str(detail2.string))
+											item_number += 1
 
-#@app.route("/timetables/locations/LG26/")
-#def timetable():
-#    room_id = "GLA.LG26"
-#    x = bsoup.get_url(room_id)
-#    return jsonify(bsoup.html_to_json(x))
+						hour = []
+						# appends hours
+						for _ in range(length):
+							hour.append(table_data_num[count])
 
-
-@app.route('/authentication/<usr>/<pas>')
-def authentication_check(usr, pas):
-    if authentication.check_user(usr,pas) == True:
-        return("1")
-    else:
-        return("0")
-
-
-if __name__ == "__main__":
-    app.run()
+						dic = {"module": cell_info[0], "name": cell_info[1], "lec": cell_info[2], "num": cell_info[3], "hours": hour}
+						week[day_name].append(dic)
+					except:
+						# for day of week
+						try:
+							null = data["rowspan"] #will fail if no rowspan
+							day_name = str(data.string)
+							if day_name not in week:
+								week[day_name] = []
+						# blank cell
+						except:
+							count += 1
+							pass
+	print("success")
+	if week == {}:	
+		return(str('Class not found please check spelling and try again.'))
+	else:	
+		return(week)
