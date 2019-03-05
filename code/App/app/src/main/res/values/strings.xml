@@ -18,4 +18,5 @@
     <string name="password">Enter Password</string>
     <string name="invalid_auth">Invalid Authentication</string>
     <string name="invalid_response">Response Error</string>
+    <string name="invalid_room">Invalid Room ID</string>
 </resources>

@@ -53,10 +53,13 @@ public class TimetableView extends AppCompatActivity {
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
                 System.out.println("Response is: " + response);                 // stack trace checker
-                if (userType.equals("lecturer")) {
+                TextView textView = findViewById(R.id.textView);               // init new text view
+                if (response.equals("00")) {
+                    displayTableError();
+                }
+                else if (userType.equals("lecturer")) {
                     displayAttendance(response);
                 } else {
-                    TextView textView = findViewById(R.id.textView);               // init new text view
                     textView.setText(response);                                    // fill text field with info
                     createTimetable(response);
                 }
@@ -69,6 +72,14 @@ public class TimetableView extends AppCompatActivity {
             }
         });
         queue.add(stringRequest);                                                   // add to thread
+    }
+
+    private void displayTableError(){
+        LinearLayout table = findViewById(R.id.total);
+        table.setVisibility(View.INVISIBLE);
+        TextView textBox = findViewById(R.id.textView);
+        textBox.setTextSize(30);
+        textBox.setText(R.string.invalid_room);
     }
 
     private void displayAttendance(String number) {
