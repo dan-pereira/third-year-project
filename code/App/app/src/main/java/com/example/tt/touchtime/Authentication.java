@@ -72,6 +72,7 @@ public class Authentication extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 System.out.println("That didn't work!");
                 TextView textView = findViewById(R.id.textView7);               // init new text view
+                textView.setVisibility(View.VISIBLE);
                 textView.setText(R.string.invalid_response);
             }
         });
