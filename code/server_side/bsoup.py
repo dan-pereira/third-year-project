@@ -16,7 +16,7 @@ def get_url(location):
 	#current_week = "24"
 
 	payload = {"room": location, "week1": current_week, "hour": "1-20", "day": "1-5", "template": "location"}
-	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=False)
+	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=True)
 
 	name = ('/var/www/FlaskApp/FlaskApp/') + str(location)+".html"
 	file = open(name, 'wb')
