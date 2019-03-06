@@ -21,9 +21,30 @@ def check_location(vari):
                 return True 
         file.close()
 
+def attendance(room, user):
+    file_location = "/var/www/FlaskApp/FlaskApp/attendance_log.txt.txt"
+    file = open(file_location, 'r')
+    att_dic = {}
+    for line in file:
+        (key, val) = line.split()
+        att_dic[key] = val
+    file.close()
+
+    if room in att_dic and user == "lecturer":
+        return att_dic[room]
+
+    if room in att_dic and user == "student":
+        att_dic[room] += 1
+    else
+        file_location = "/var/www/FlaskApp/FlaskApp/attendance_log.txt.txt"
+        file = open(file_location, 'w')
+        string = room + " " + "0"
+        file.write()
+        file.close()
+
 @app.route("/")
 def hello():
-        return "Welcome to TouchTime Server!"
+    return "Welcome to TouchTime Server!"
 
 @app.route('/timetables/')
 @app.route('/timetables/locations/')
@@ -39,24 +60,19 @@ def timetable_empty(tester1):
         else:
                 return ("00") 
 
-@app.route('/timetables/locations/<tester1>/lecturer') 
+@app.route('/timetables/locations/<tester1>/lecturer') ######
 def lec_tester(tester1):
         room_id = 'GLA.' + tester1
         if check_location(room_id) == True:
-                if tester1 not in counter_dict:
-                        counter_dict[tester1] = 0
-                return str(counter_dict[tester1])
+                return attendance(tester1,"lecturer")
         else: 
                 return ('00')
 
-@app.route('/timetables/locations/<tester1>/student') 
+@app.route('/timetables/locations/<tester1>/student') ########
 def tester(tester1):
-        if tester1 not in counter_dict: 
-                counter_dict[tester1] = 1
-        else: 
-                counter_dict[tester1] += 1 
         room_id = 'GLA.' + tester1
         if check_location(room_id) == True:
+                attendance(tester1, "student")
                 x = bsoup.get_url(room_id)
                 return jsonify(bsoup.html_to_json(x))
         else:
