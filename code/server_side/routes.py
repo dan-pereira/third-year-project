@@ -57,10 +57,7 @@ def tester(tester1):
     else: 
         counter_dict[tester1] += 1 
     room_id = 'GLA.' + tester1
-    if check_location(room_id) == True:
-        x = bsoup.get_url(room_id)
-        return jsonify(bsoup.html_to_json(x))
-    else:
+    if check_location(room_id) != True:
         return ("0") 
     x = bsoup.get_url(room_id)
     return jsonify(bsoup.html_to_json(x))
