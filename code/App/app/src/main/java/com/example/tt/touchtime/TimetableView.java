@@ -118,7 +118,7 @@ public class TimetableView extends AppCompatActivity {
                     addToTable(d, m, n, l, t, len);
                 }
             }
-            textView.setGravity(Gravity.BOTTOM);
+            textView.setGravity(Gravity.TOP);
             textView.setText(room);
 
         } catch (Throwable tx) {
