@@ -34,7 +34,6 @@ public class TimetableView extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
-//TODO maybe if if breaks
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
         String user_id = extras.getString("USER_TYPE");
         userType = user_id;

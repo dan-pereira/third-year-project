@@ -31,8 +31,14 @@ public class Authentication extends AppCompatActivity {
         String pasword = paswordTxt.getText().toString();
 
 
-        getJSONObjectFromURL("http://209.97.184.103/authentication/" + (user) + "/" + (pasword)); // call method with return in method
-
+        if (user.equals("") || pasword.equals("")){
+            TextView textView = findViewById(R.id.textView7);
+            textView.setVisibility(View.VISIBLE);
+            textView.setText(R.string.invalid_auth);
+        }
+        else {
+            getJSONObjectFromURL("http://209.97.184.103/authentication/" + (user) + "/" + (pasword)); // call method with return in method
+        }
     }
 
     private void change_activity () {

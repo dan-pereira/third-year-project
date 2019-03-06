@@ -3,7 +3,7 @@
     <string name="welcome_message">Welcome To</string>
     <string name="button_student">STUDENT</string>
     <string name="button_lecturer">LECTURER</string>
-    <string name="room_id">Enter Room ID</string>
+    <string name="room_id">Enter Room ID eg. LG27</string>
     <string name="time_message">Choose a Time</string>
     <string name="button_go">GO</string>
     <string name="title_activity_scaning_screen">ScaningScreen</string>

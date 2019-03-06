@@ -14,17 +14,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Authentication"></activity>
-        <activity android:name=".SplashScreen">
+        <activity
+            android:name=".Authentication"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentDetails" />
-        <activity android:name=".LecturerDetails" />
-        <activity android:name=".ScanScreen">
+        <activity
+            android:name=".StudentDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LecturerDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScanScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
