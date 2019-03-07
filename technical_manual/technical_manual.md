@@ -10,7 +10,7 @@ Overview
 Glossary 
 
 2. System Architecture<br/>
-	2.1 	System Architecture Diagram<br/>
+	2.1 	System Architecture Description<br/>
 	2.2. 	System Architecture Diagram
 
 3. High Level Design<br/> 
@@ -44,12 +44,24 @@ A lecturer can be set up on request with a username and password, which allows t
 **Front-End** - User view of a given application/system.<br/>
 **Back-End** - Part of system that supports front-end, not directly accessed by user. <br/>
 **APK** (Android Application Package) - File format used  by Android Operating System for distribution and installation of applications. <br/>
-**Virtual Environment** - Tool that helps to keep dependencies required by different projects separate by creating separate virtual environments for them.
+**Virtual Environment* - Tool that helps to keep dependencies required by different projects separate by creating separate virtual environments for them.
 
 ## 2. System Architecture 
 
+**2.1 System Architecture Description**</br>
+Outlined below is our System Architecture Diagram. It illustrates the main features of our app. The core functionality of Checking Timetables by searching for a room or scanning an NFC tag outside a room can be accessed by anyone. Checking attendance is a restricted feature that can only be accessed by pre-authorised users that are given their own unique username and password. 
+
+**2.1 System Architecture Diagram**<br/>
+<img src=./images/updated_system_architecture.png width="400
+">
+
 ## 3. High Level Design 
-
+**3.1 Context Diagram** 
+
+**3.2 Data Flow Diagram**
+
+**3.3 Overall System Design** 
+
 ## 4. Problems & Resolutions 
 
 **Python Distribution** <br/>

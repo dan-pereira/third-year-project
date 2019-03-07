@@ -63,9 +63,9 @@ In the lecturer login view you must be set up with a username and a password. By
 <img src=./images/s8_lecture_login.jpg width="150">
 
 ## 8. Scanning a Tag
-The Touch Time NFC tags are small circular labels placed on the doors of valid lecture rooms and labs. ### . upon scanning they will return the timetable for the room on which they are placed
-You can scan the tags in multiple ways. First check to make sure you have NFC switched on.
-When on the NFC scan page hold your phone upto a tag. Upon successful scanning, you will be brought to a timetable view for the room scanned.
+The Touch Time NFC tags are small circular labels placed on the doors of valid lecture rooms and labs. ### . upon scanning they will return the timetable for the room on which they are placed. <br/>
+You can scan the tags in multiple ways. First check to make sure you have NFC switched on. <br/>
+When on the NFC scan page hold your phone upto a tag. Upon successful scanning, you will be brought to a timetable view for the room scanned.<br/>
 Alternatively you can scan an NFC tag from anywhere in your phone and the Touch Time app will open up on the NFC scan page. Upon scanning the tag again you will be brought to the time table of that tags room.
 
 <img src=./images/galaxyA6_NFC.png width="150">
