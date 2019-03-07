@@ -137,6 +137,7 @@ GalaxyA3
 <br/>
 <img src=./images/bug_galaxysA3.png width="150"/>
 <br/>
+
 <img src=./images/terminal_300errors.png width="500"/>
 
 
