@@ -2,6 +2,8 @@
 
 ## Technical Manual 
 
+<img src="./images/logo2.png">
+
 Jacob Byrne - 15492172
 Daniel Pereira - 15364491
 
