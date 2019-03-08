@@ -23,16 +23,16 @@ public class Authentication extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
     }
 
-    private String encrypt(String base){
+    private String encrypt(String base) {    //definition will encrypt strings
 
         StringBuilder bases = new StringBuilder("1");
         StringBuilder acbase = new StringBuilder("1");
-        for (int i = 0 ; bases.length() < 10 ; i++){
+        for (int i = 0; bases.length() < 10; i++) {
             bases.append(base);
         }
-        for (int i = bases.length()-1 ; i >= 0; i--){
+        for (int i = bases.length() - 1; i >= 0; i--) {
             int ascii = (int) bases.charAt(i);
-            String a = Integer.toHexString(ascii+5);
+            String a = Integer.toHexString(ascii + 5);
             acbase.append(a);
         }
 //        String hx = Integer.toHexString(Integer.parseInt(bases.toString()));
@@ -40,51 +40,45 @@ public class Authentication extends AppCompatActivity {
         return hxr;
     }
 
-    public void check_authentication (View view) {
-
+    public void check_authentication(View view) {
         EditText userTxt = findViewById(R.id.editText5);
         EditText paswordTxt = findViewById(R.id.editText6);
         String user = userTxt.getText().toString();
         String password = paswordTxt.getText().toString();
 
-        String pasword = encrypt(password);
 
-
-        if (user.equals("") || password.equals("")){
+        if (user.equals("") || password.equals("")) {    //makes sure fields are not blank
             TextView textView = findViewById(R.id.textView7);
             textView.setVisibility(View.VISIBLE);
             textView.setText(R.string.invalid_auth);
-        }
-        else {
+        } else {  //if fields are ok encrypt and request json from url
+            String pasword = encrypt(password);
             getJSONObjectFromURL("http://209.97.184.103/authentication/" + (encrypt(user)) + "/" + (pasword)); // call method with return in method
         }
     }
 
-    private void change_activity () {
-
+    private void change_activity() {
         Intent intent = new Intent(this, LecturerDetails.class);
         startActivity(intent);
     }
 
 
     private void getJSONObjectFromURL(String urlString) throws java.lang.IllegalStateException {
-        Context ctx = Authentication.this.getApplicationContext();
+        Context ctx = Authentication.this.getApplicationContext(); //set up for volly
         RequestQueue queue = Volley.newRequestQueue(ctx); // ctx is the context
-        //Volley requests
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, (urlString), new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, (urlString), new Response.Listener<String>() { //send out a request to server
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
                 System.out.println("Response is: " + response);                 // stack trace checker
                 TextView textView = findViewById(R.id.textView7);
+                //response return values for if username : password is valid
                 if (response.equals("1")) {
                     change_activity();
-                }
-                else if (response.equals("0")){
+                } else if (response.equals("0")) {
                     textView.setVisibility(View.VISIBLE);
                     textView.setText(R.string.invalid_auth);
-                }
-                else {
-                    textView.setText(response);                                    // fill text field with info
+                } else {
+                    textView.setText(response);                                    // fill text field for server error info
                 }
             }
         }, new Response.ErrorListener() {                                   // error handling auto generated

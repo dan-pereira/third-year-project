@@ -14,6 +14,7 @@ public class LecturerDetails extends AppCompatActivity {
         setContentView(R.layout.activity_lecturer_details);
     }
 
+    // send user type to scan view
     public void scanView(View view) {
         Bundle extras = new Bundle();
         extras.putString("USER_TYPE", "");
@@ -21,43 +22,26 @@ public class LecturerDetails extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
-
+    // send room and user type to timetable view
     public void timetableView(View view) {
         Bundle extras = new Bundle();
-
         EditText editText1 = findViewById(R.id.editText3);
-//        EditText editText2 = findViewById(R.id.editText4);
-
-        String message1 = editText1.getText().toString();
-//        String message2 = editText2.getText().toString();
-
+        String message1 = editText1.getText().toString().toUpperCase();
         extras.putString("ROOMID", message1);
         extras.putString("USER_TYPE", "");
-
-
         Intent intent = new Intent(this, TimetableView.class);
-
         intent.putExtras(extras);
         startActivity(intent);
     }
 
-
+    // send room and user type to timetable attendance view
     public void attendanceView(View view) {
         Bundle extras = new Bundle();
-
         EditText editText1 = findViewById(R.id.editText3);
-//        EditText editText2 = findViewById(R.id.editText4);
-
-        String message1 = editText1.getText().toString();
-//        String message2 = editText2.getText().toString();
-
+        String message1 = editText1.getText().toString().toUpperCase();
         extras.putString("ROOMID", message1);
-//        extras.putString("TIME", message2);
         extras.putString("USER_TYPE", "lecturer");
-
-
         Intent intent = new Intent(this, TimetableView.class);
-
         intent.putExtras(extras);
         startActivity(intent);
     }

@@ -17,10 +17,19 @@ import java.util.Arrays;
 
 public class ScanScreen extends AppCompatActivity {
 
+    String userType = "student";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String user_id = extras.getString("USER_TYPE");
+        if (user_id != null) {
+            userType = user_id;
+        }
     }
 
     @Override
@@ -36,11 +45,12 @@ public class ScanScreen extends AppCompatActivity {
 
         TextView textBox = findViewById(R.id.textView3);
         try {
-            NfcAdapter nfcAdpt = NfcAdapter.getDefaultAdapter(this);
+            NfcAdapter nfcAdpt = NfcAdapter.getDefaultAdapter(this); //get Nfc hardware type
             if (!nfcAdpt.isEnabled()){
                 textBox.setText(R.string.enable_nfc);
             }
             else {
+                // dispatch nfc adaptor feeler
                 nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{intentfilter}, null);
             }
         }
@@ -55,7 +65,7 @@ public class ScanScreen extends AppCompatActivity {
 //        When Intent is triggered read info off of discovered tag
         try {
             if ((NfcAdapter.ACTION_TAG_DISCOVERED).equals(intent.getAction())) {
-                Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+                Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG); // get info from tag
                 //            This will parse nfc tag data
                 nfcRead(tag);
                 Log.i("-----___----", "Tag Detected");
@@ -64,7 +74,7 @@ public class ScanScreen extends AppCompatActivity {
         catch (NullPointerException e) {
             TextView textBox = findViewById(R.id.textView3);
             textBox.setText(R.string.nfc_error_empty);
-            Log.i("-----_-----", "null");
+            Log.i("-----_-----", "Scan Error");
         }
     }
 
@@ -81,15 +91,15 @@ public class ScanScreen extends AppCompatActivity {
         NdefRecord[] record = message.getRecords();
         for (NdefRecord tagRecord : record) {
             if (tagRecord.getTnf() == NdefRecord.TNF_WELL_KNOWN && Arrays.equals(tagRecord.getType(), NdefRecord.RTD_TEXT)) {
-
+                //get correct byte from payload
                 byte[] payload = tagRecord.getPayload();
                 String str = new String(payload);
-                String text = str.substring(3);
+                String text = str.substring(3); //Get room name out of data
 
 //              Here text is being passed to next activity
                 Bundle passingString = new Bundle();
                 passingString.putString("ROOMID", text);
-                passingString.putString("USER_TYPE", "student");
+                passingString.putString("USER_TYPE", userType);
                 Intent intent = new Intent(this, TimetableView.class);
                 intent.putExtras(passingString);
                 startActivity(intent);

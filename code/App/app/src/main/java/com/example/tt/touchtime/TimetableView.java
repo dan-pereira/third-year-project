@@ -30,9 +30,8 @@ public class TimetableView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) throws NullPointerException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable_view);
-        //Default layout for screen
-        Intent intent = getIntent();
 
+        Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         String id = extras.getString("ROOMID").replaceAll("\\s+", "");
         String user_id = extras.getString("USER_TYPE");
@@ -78,7 +77,7 @@ public class TimetableView extends AppCompatActivity {
 
     private void displayTableError(){
         LinearLayout table = findViewById(R.id.total);
-        table.setVisibility(View.INVISIBLE);
+        table.setVisibility(View.INVISIBLE);            //hide timetable for display message
         TextView textBox = findViewById(R.id.textView);
         textBox.setTextSize(30);
         textBox.setText(R.string.invalid_room);
@@ -86,7 +85,7 @@ public class TimetableView extends AppCompatActivity {
 
     private void displayAttendance(String number) {
         LinearLayout table = findViewById(R.id.total);
-        table.setVisibility(View.INVISIBLE);
+        table.setVisibility(View.INVISIBLE);            //hide timetable for display message
         TextView textBox = findViewById(R.id.textView);
         textBox.setTextSize(30);
         String message = number +"\n Students have checked in via NFC";
@@ -96,14 +95,11 @@ public class TimetableView extends AppCompatActivity {
     public void createTimetable(String mess) {
         TextView textView = findViewById(R.id.textView);
 
-        try {
+        try {       //Parse json object from server
             JSONObject data = new JSONObject(mess);
-
             String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri"};
             for (String d : days) {
-
                 String day = data.getString(d);// makes a day a string
-
                 JSONArray jsonArray = new JSONArray(day);
                 int count = jsonArray.length();
                 for (int i = 0; i < count; i += 1) {
@@ -123,19 +119,16 @@ public class TimetableView extends AppCompatActivity {
 
         } catch (Throwable tx) {
             Log.i("----__-_", "here", tx);
-            Log.e("My App", "Could not parse malformed JSON: \"", tx);
-            textView.setText((CharSequence) tx); //TODO check if statement valid...mayremove
+            Log.e("My App", "JSON parse error: \"", tx);
+            textView.setText((CharSequence) tx);
         }
     }
 
     private void addToTable(String day, String module, String name, String lec, String begin, int duration) {
+        String baseIdentifier = "" + Character.toLowerCase(day.charAt(0)) + day.charAt(1);
 
-        String baseIdentifier = "";
-        baseIdentifier += Character.toLowerCase(day.charAt(0));
-        baseIdentifier += day.charAt(1);
-
+        // += 2 due to half hour block to hour blocks
         for (int i = 0; i < duration; i += 2) {
-
             String[] hourMin = begin.split(":");
             String hour = hourMin[0];
             int time = Integer.parseInt(hour);

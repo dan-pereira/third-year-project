@@ -15,8 +15,6 @@ public class SplashScreen extends AppCompatActivity {
 
     public void studentView(View view) {
         startActivity(new Intent(this, StudentDetails.class));
-//        Intent intent = new Intent(this, StudentDetails.class);
-//        startActivity(intent);
     }
 
     public void lecturerView(View View) {

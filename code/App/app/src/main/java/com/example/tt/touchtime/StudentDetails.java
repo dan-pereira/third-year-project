@@ -15,7 +15,7 @@ public class StudentDetails extends AppCompatActivity {
         setContentView(R.layout.activity_student_details);
     }
 
-
+//    Send user type to scan screen
     public void scanView(View view) {
         Bundle extras = new Bundle();
         extras.putString("USER_TYPE", "student");
@@ -24,20 +24,14 @@ public class StudentDetails extends AppCompatActivity {
         startActivity(intent);
     }
 
+//    Send user type to timetable view
     public void timetableView(View view) {
-
         Bundle extras = new Bundle();
-
         EditText editText1 = findViewById(R.id.editText);
-
         String message1 = editText1.getText().toString();
-
         extras.putString("ROOMID", message1);
         extras.putString("USER_TYPE", "");
-
-
         Intent intent = new Intent(this, TimetableView.class);
-
         intent.putExtras(extras);
         startActivity(intent);
     }
