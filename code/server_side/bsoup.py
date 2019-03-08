@@ -15,6 +15,7 @@ def get_url(location):
 	current_week = date
 	#current_week = "24"
 
+	# build url
 	payload = {"room": location, "week1": current_week, "hour": "1-20", "day": "1-5", "template": "location"}
 	http_raw = requests.get('https://www101.dcu.ie/timetables/feed.php', params=payload, verify=True)
 
@@ -66,8 +67,9 @@ def html_to_json(file_name):
 							hour.append(table_data_num[count])
 							count += 1
 
+						# build dictionary of details
 						dic = {"module": cell_info[0], "name": cell_info[1], "lec": cell_info[2], "num": cell_info[3], "hours": hour}
-						week[day_name].append(dic)
+						week[day_name].append(dic) #append details
 					except:
 						# for day of week
 						try:
