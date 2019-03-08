@@ -145,8 +145,7 @@ GalaxyA3
 
 # User-Acceptance Testing
 
-**TO DO** Interview 8 more people
-
+As part of our ethical approval for the project we surveyed a small sample of potential users to gain any feedback. This was a very helpful exercise as it helped us to find a bug we had missed to do with transitioning between screens. This was an easy fix but nevertheless it was something we would have missed without User. 
 
 
 # Continuous Integration Testing
@@ -159,7 +158,7 @@ We also insured as we periodically increased functionality to trial the feature 
 
 # Deployment Testing
 
-As part of our project, we had to transition from running our Flask API locally to deploying it to a server. We used a Digital Ocean Instance running an Apache 2 server to do this. To use this reliably we had to carry out tests on both the deployed version of the server. We mainly carried out stress tests. We did this by bombarding the server with multiple requests from multiple devices in order to see if it caused a crash or slowed responses. I also wrote a small shell script to make 1000 get requests to multiple pages on the server in order to carry out the stress test. This can be found in the code directory on the gitlab server.
+As part of our project, we had to transition from running our Flask API locally to deploying it to a server. We used a Digital Ocean Instance running an Apache 2 server to do this. To use this reliably we had to carry out tests on both the deployed version of the server. We mainly carried out stress tests. We did this by bombarding the server with multiple requests from multiple devices in order to see if it caused a crash or slowed responses. I also wrote a small shell script to make 1000 get requests to multiple pages on the server in order to carry out the stress test. This can be found in the code directory on the gitlab server named tester.sh .
 
 
 

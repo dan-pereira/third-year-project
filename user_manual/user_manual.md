@@ -4,13 +4,13 @@
 
 ## Third Year Project 
 
-<img src="./images/logo.png" width = "150">
+<img src="./images/logo2.png">
 
 **Jacob Byrne - 15491272**
 
 **Daniel Pereira - 15364491**
 
-
+
 ## Table of Contents
 
 1. Prerequisites
