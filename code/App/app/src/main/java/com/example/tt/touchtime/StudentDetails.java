@@ -8,14 +8,13 @@ import android.widget.EditText;
 
 public class StudentDetails extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details);
     }
 
-//    Send user type to scan screen
+    //    Send user type to scan screen
     public void scanView(View view) {
         Bundle extras = new Bundle();
         extras.putString("USER_TYPE", "student");
@@ -24,11 +23,11 @@ public class StudentDetails extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    Send user type to timetable view
+    //    Send user type to timetable view
     public void timetableView(View view) {
         Bundle extras = new Bundle();
         EditText editText1 = findViewById(R.id.editText);
-        String message1 = editText1.getText().toString();
+        String message1 = editText1.getText().toString().toUpperCase();
         extras.putString("ROOMID", message1);
         extras.putString("USER_TYPE", "");
         Intent intent = new Intent(this, TimetableView.class);

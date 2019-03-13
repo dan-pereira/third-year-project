@@ -95,7 +95,7 @@ public class ScanScreen extends AppCompatActivity {
                 byte[] payload = tagRecord.getPayload();
                 String str = new String(payload);
                 String text = str.substring(3); //Get room name out of data
-
+//TODO user type add buttons for student, options
 //              Here text is being passed to next activity
                 Bundle passingString = new Bundle();
                 passingString.putString("ROOMID", text);

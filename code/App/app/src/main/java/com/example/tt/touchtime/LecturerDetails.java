@@ -22,6 +22,7 @@ public class LecturerDetails extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
+
     // send room and user type to timetable view
     public void timetableView(View view) {
         Bundle extras = new Bundle();
