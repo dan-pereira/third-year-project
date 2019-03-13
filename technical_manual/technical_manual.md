@@ -125,7 +125,7 @@ Solution: By upgrading android manifest and gradle files on app builds we ensure
 
 We have uploaded our App to Google Drive, the app supports Android 4.1 Jellybean and above. The app is free to use. 
 
-1. Click the following link: https://drive.google.com/drive/folders/1neyDiAVz9Qan-yVta3Xs2Pd4Zvh6NS8f?usp=sharing 
+1. Click the following link: http://bit.do/touchtimetyp 
 2. If you haven’t already, navigate to your settings and enable Third Party App installation.
 3. Navigate to your devices downloads folder. 
 4. Tap it and the installation process should start. 
